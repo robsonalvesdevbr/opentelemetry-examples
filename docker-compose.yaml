@@ -37,8 +37,8 @@ services:
       - "5341:5341"
     environment:
       ACCEPT_EULA: Y
-      SEQ_FIRSTRUN_ADMINPASSWORDHASH: QJz8cHSsSJiLv+lEXEz0lfujEKlo6CAxjMbIIok7Yi6Q8X5hkyMN5a4uhUOt7Fo4YW3+2xjzMeFU10krAQ4Ac25N9KLu6lIHWdhUqomF+GQ6
-      SEQ_STORAGE_SECRETKEY: yshPmipNxorQ+zyGxzraXG9W7/ZoIq6YDU8zfTkUAXA=
+      SEQ_FIRSTRUN_ADMINPASSWORDHASH: QPGJbQvw2Ug6oKsR2pQI4OHh5Q3jhJlqTJ5IpaYZJ7a0P+phQLbS2aic3nTrKXjoyPxDf/keJrAZEdiInN+v/2u4+8/zxIPySjmonW8536+m
+      SEQ_STORAGE_SECRETKEY: 9kPXGf5bWYlak8uerHRKbHZxOUuZPxP7AjMjHTWTX74=
     depends_on:
       - otel-collector
 
