@@ -39,7 +39,8 @@ builder.Services.AddOpenTelemetry()
         {
             options.Endpoint = new Uri("http://otel-collector:4317");
             options.Protocol = OtlpExportProtocol.Grpc;
-        }))
+        })
+        .AddConsoleExporter())
     .WithMetrics(metrics => metrics
         // The rest of your setup code goes here
         .AddOtlpExporter(options =>
@@ -53,7 +54,8 @@ builder.Logging.AddOpenTelemetry(logging => {
 
     logging.SetResourceBuilder(ResourceBuilder.CreateDefault()
         .AddService(serviceName, serviceVersion)
-        .AddAttributes(resourceAttributes));
+        .AddAttributes(resourceAttributes))
+    .AddConsoleExporter();
     logging.IncludeFormattedMessage = true;
 
     // The rest of your setup code goes here
