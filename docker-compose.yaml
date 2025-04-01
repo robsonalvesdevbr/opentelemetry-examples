@@ -56,15 +56,10 @@ services:
       - "4317:4317"   # OTLP gRPC receiver
       - "55679:55679" # zpages extension
 
-  goapp-build:
-    container_name: goapp-build
-    build:
-      context: go/.
-    restart: "no"
-    image: robsondevbr/goapp:latest
-
   goapp1:
     container_name: goapp1
+    build:
+      context: go/.
     image: robsondevbr/goapp:latest
     environment:
       - TITLE=Microservice Demo
@@ -80,7 +75,7 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - goapp-build
+      - goapp2
       - jaeger-all-in-one
       - zipkin-all-in-one
       - prometheus
@@ -89,6 +84,8 @@ services:
 
   goapp2:
     container_name: goapp2
+    build:
+      context: go/.
     image: robsondevbr/goapp:latest
     environment:
       - TITLE=Microservice Demo 2
@@ -104,7 +101,7 @@ services:
     ports:
       - "8181:8181"
     depends_on:
-      - goapp-build
+      - goapp3 
       - jaeger-all-in-one
       - zipkin-all-in-one
       - prometheus
@@ -113,6 +110,8 @@ services:
 
   goapp3:
     container_name: goapp3
+    build:
+      context: go/.
     image: robsondevbr/goapp:latest
     environment:
       - TITLE=Microservice Demo 3
@@ -126,7 +125,21 @@ services:
     ports:
       - "8282:8282"
     depends_on:
-      - goapp-build
+      - jaeger-all-in-one
+      - zipkin-all-in-one
+      - prometheus
+      - otel-collector
+      - seq
+
+  dotnetapp1:
+    container_name: dotnetapp1
+    build:
+      context: dotnet/.
+    image: robsondevbr/dotnetapp:latest
+    ports:
+      - "8090:8080"
+      - "8091:8081"
+    depends_on:
       - jaeger-all-in-one
       - zipkin-all-in-one
       - prometheus
