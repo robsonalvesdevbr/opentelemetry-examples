@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "2fHCTdOPZpERMDzxDl3O4Giyu6uZ0BfKL7XeXvMI44Y=",
+  "Source": "dotnet_opentelemetry",
+  "BasePath": "_content/dotnet_opentelemetry",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

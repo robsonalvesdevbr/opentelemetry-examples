@@ -131,14 +131,18 @@ services:
       - otel-collector
       - seq
 
-  dotnetapp1:
-    container_name: dotnetapp1
+  dotnet_opentelemetry_1:
+    container_name: dotnet_opentelemetry_1
     build:
-      context: dotnet/dotnet_opentelemetry/opentelemetry_1/.
-    image: robsondevbr/dotnetapp1:latest
+      context: dotnet/dotnet_opentelemetry/opentelemetry/.
+    image: robsondevbr/dotnet_opentelemetry:latest
     ports:
       - "8090:8080"
       - "8091:8081"
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+      - OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=grpc
+      - OTEL_LOG_LEVEL=debug
     depends_on:
       - jaeger-all-in-one
       - zipkin-all-in-one
@@ -146,11 +150,11 @@ services:
       - otel-collector
       - seq
 
-  dotnetapp2:
-    container_name: dotnetapp2
+  dotnet_opentelemetry_2:
+    container_name: dotnet_opentelemetry_2
     build:
-      context: dotnet/dotnet_opentelemetry/opentelemetry_2/.
-    image: robsondevbr/dotnetapp2:latest
+      context: dotnet/dotnet_opentelemetry/opentelemetry/.
+    image: robsondevbr/dotnet_opentelemetry:latest
     ports:
       - "8092:8080"
       - "8093:8081"

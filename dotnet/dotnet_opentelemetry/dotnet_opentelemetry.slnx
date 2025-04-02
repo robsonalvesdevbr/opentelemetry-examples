@@ -4,10 +4,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Folder Name="/opentelemetry_1/">
-    <Project Path="opentelemetry_1/dotnet-opentelemetry.csproj" />
-  </Folder>
-  <Folder Name="/opentelemetry_2/">
-    <Project Path="opentelemetry_2/dotnet_opentelemetry2.csproj" />
+  <Folder Name="/opentelemetry/">
+    <Project Path="opentelemetry/dotnet_opentelemetry.csproj" />
   </Folder>
 </Solution>
