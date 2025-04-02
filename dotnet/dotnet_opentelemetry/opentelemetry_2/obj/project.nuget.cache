@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "c7NOFvK5lp0=",
+  "dgSpecHash": "j6mxP8CoEU0=",
   "success": true,
   "projectFilePath": "/home/robson/workspace/source_code/github.com/robsonalvesdevbr/opentelemetry-examples/dotnet/dotnet_opentelemetry/opentelemetry_2/dotnet_opentelemetry2.csproj",
   "expectedPackageFiles": [
@@ -27,6 +27,7 @@
     "/home/robson/.nuget/packages/opentelemetry.exporter.opentelemetryprotocol/1.11.2/opentelemetry.exporter.opentelemetryprotocol.1.11.2.nupkg.sha512",
     "/home/robson/.nuget/packages/opentelemetry.extensions.hosting/1.11.2/opentelemetry.extensions.hosting.1.11.2.nupkg.sha512",
     "/home/robson/.nuget/packages/opentelemetry.instrumentation.aspnetcore/1.11.1/opentelemetry.instrumentation.aspnetcore.1.11.1.nupkg.sha512",
+    "/home/robson/.nuget/packages/opentelemetry.instrumentation.http/1.11.1/opentelemetry.instrumentation.http.1.11.1.nupkg.sha512",
     "/home/robson/.nuget/packages/system.diagnostics.diagnosticsource/9.0.0/system.diagnostics.diagnosticsource.9.0.0.nupkg.sha512"
   ],
   "logs": []

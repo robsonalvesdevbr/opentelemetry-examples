@@ -63,6 +63,10 @@
             "OpenTelemetry.Instrumentation.AspNetCore": {
               "target": "Package",
               "version": "[1.11.1, )"
+            },
+            "OpenTelemetry.Instrumentation.Http": {
+              "target": "Package",
+              "version": "[1.11.1, )"
             }
           },
           "imports": [

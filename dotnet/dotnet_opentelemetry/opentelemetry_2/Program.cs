@@ -1,3 +1,5 @@
+using System.Reflection;
+using System.Runtime.InteropServices;
 using OpenTelemetry.Exporter;
 using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
@@ -10,13 +12,27 @@ var builder = WebApplication.CreateBuilder(args);
 
 var serviceName = "dotnet_opentelemetry.opentelemetry_2";
 var serviceVersion = "1.0.0";
+var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
+
+var resourceAttributes = new Dictionary<string, object>
+{
+    ["runtime.os.deescription"] = RuntimeInformation.OSDescription,
+    ["runtime.framework.description"] = RuntimeInformation.FrameworkDescription,
+    ["deployment.environment"] = environment,
+    ["service.name"] = "RobsonAlves.Backend.Microservice.Client",
+    ["service.namespace"] = Assembly.GetExecutingAssembly().GetName().Name ?? "undefined",
+    ["service.version"] = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "undefined"
+};
 
 builder.Services.AddOpenTelemetry()
-    .ConfigureResource(resource => resource.AddService(
-        serviceName: serviceName,
-        serviceVersion: serviceVersion))
+    .ConfigureResource(resource => resource
+        .AddService(
+            serviceName: serviceName,
+            serviceVersion: serviceVersion)
+        .AddAttributes(resourceAttributes))
     .WithTracing(tracing => tracing
         .AddSource(serviceName)
+        .AddHttpClientInstrumentation()
         .AddAspNetCoreInstrumentation()
         .AddConsoleExporter()
         .AddOtlpExporter(options =>
@@ -35,16 +51,21 @@ builder.Services.AddOpenTelemetry()
                 })
         );
 
-builder.Logging.AddOpenTelemetry(options => options
-    .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(
+builder.Logging.AddOpenTelemetry(options => {
+    options
+    .SetResourceBuilder(ResourceBuilder.CreateDefault()
+    .AddService(
         serviceName: serviceName,
-        serviceVersion: serviceVersion))
+        serviceVersion: serviceVersion)
+    .AddAttributes(resourceAttributes))
     .AddConsoleExporter()
     .AddOtlpExporter(options =>
     {
         options.Endpoint = new Uri("http://otel-collector:4317");
         options.Protocol = OtlpExportProtocol.Grpc;
-    }));
+    });
+    options.IncludeFormattedMessage = true;
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

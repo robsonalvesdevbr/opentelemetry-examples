@@ -433,6 +433,24 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "OpenTelemetry.Instrumentation.Http/1.11.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "9.0.0",
+          "Microsoft.Extensions.Options": "9.0.0",
+          "OpenTelemetry.Api.ProviderBuilderExtensions": "[1.11.2, 2.0.0)"
+        },
+        "compile": {
+          "lib/net8.0/OpenTelemetry.Instrumentation.Http.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/OpenTelemetry.Instrumentation.Http.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Diagnostics.DiagnosticSource/9.0.0": {
         "type": "package",
         "compile": {
@@ -1170,6 +1188,25 @@
         "opentelemetry.instrumentation.aspnetcore.nuspec"
       ]
     },
+    "OpenTelemetry.Instrumentation.Http/1.11.1": {
+      "sha512": "hyZ3H8HxtQPvipBPdkN6tJWSCvY06XVyLbKlHuJlPrlV/lQJ/QuEBKYTXqcSa21LE/Th4HV+Choxi8eTu74xyw==",
+      "type": "package",
+      "path": "opentelemetry.instrumentation.http/1.11.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "lib/net462/OpenTelemetry.Instrumentation.Http.dll",
+        "lib/net462/OpenTelemetry.Instrumentation.Http.xml",
+        "lib/net8.0/OpenTelemetry.Instrumentation.Http.dll",
+        "lib/net8.0/OpenTelemetry.Instrumentation.Http.xml",
+        "lib/netstandard2.0/OpenTelemetry.Instrumentation.Http.dll",
+        "lib/netstandard2.0/OpenTelemetry.Instrumentation.Http.xml",
+        "opentelemetry-icon-color.png",
+        "opentelemetry.instrumentation.http.1.11.1.nupkg.sha512",
+        "opentelemetry.instrumentation.http.nuspec"
+      ]
+    },
     "System.Diagnostics.DiagnosticSource/9.0.0": {
       "sha512": "ddppcFpnbohLWdYKr/ZeLZHmmI+DXFgZ3Snq+/E7SwcdW4UnvxmaugkwGywvGVWkHPGCSZjCP+MLzu23AL5SDw==",
       "type": "package",
@@ -1209,7 +1246,8 @@
       "OpenTelemetry.Exporter.Console >= 1.11.2",
       "OpenTelemetry.Exporter.OpenTelemetryProtocol >= 1.11.2",
       "OpenTelemetry.Extensions.Hosting >= 1.11.2",
-      "OpenTelemetry.Instrumentation.AspNetCore >= 1.11.1"
+      "OpenTelemetry.Instrumentation.AspNetCore >= 1.11.1",
+      "OpenTelemetry.Instrumentation.Http >= 1.11.1"
     ]
   },
   "packageFolders": {
@@ -1272,6 +1310,10 @@
             "version": "[1.11.2, )"
           },
           "OpenTelemetry.Instrumentation.AspNetCore": {
+            "target": "Package",
+            "version": "[1.11.1, )"
+          },
+          "OpenTelemetry.Instrumentation.Http": {
             "target": "Package",
             "version": "[1.11.1, )"
           }
