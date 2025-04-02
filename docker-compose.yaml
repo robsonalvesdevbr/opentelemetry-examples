@@ -134,7 +134,7 @@ services:
   dotnetapp1:
     container_name: dotnetapp1
     build:
-      context: dotnet/dotnet_opentelemetry1/.
+      context: dotnet/dotnet_opentelemetry/opentelemetry_1/.
     image: robsondevbr/dotnetapp:latest
     ports:
       - "8090:8080"

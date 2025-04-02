@@ -80,11 +80,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/robson/Documentos/workspace/source_code/github.com/robsonalvesdevbr/opentelemetry-examples/dotnet/example2/dotnet_opentelemetry2/dotnet_opentelemetry2.csproj",
+      "projectUniqueName": "/home/robson/workspace/source_code/github.com/robsonalvesdevbr/opentelemetry-examples/dotnet/dotnet_opentelemetry/opentelemetry_2/dotnet_opentelemetry2.csproj",
       "projectName": "dotnet_opentelemetry2",
-      "projectPath": "/home/robson/Documentos/workspace/source_code/github.com/robsonalvesdevbr/opentelemetry-examples/dotnet/example2/dotnet_opentelemetry2/dotnet_opentelemetry2.csproj",
+      "projectPath": "/home/robson/workspace/source_code/github.com/robsonalvesdevbr/opentelemetry-examples/dotnet/dotnet_opentelemetry/opentelemetry_2/dotnet_opentelemetry2.csproj",
       "packagesPath": "/home/robson/.nuget/packages/",
-      "outputPath": "/home/robson/Documentos/workspace/source_code/github.com/robsonalvesdevbr/opentelemetry-examples/dotnet/example2/dotnet_opentelemetry2/obj/",
+      "outputPath": "/home/robson/workspace/source_code/github.com/robsonalvesdevbr/opentelemetry-examples/dotnet/dotnet_opentelemetry/opentelemetry_2/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/robson/.nuget/NuGet/NuGet.Config"
@@ -93,7 +93,6 @@
         "net9.0"
       ],
       "sources": {
-        "/usr/lib/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -112,7 +111,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -142,7 +141,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.104/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/home/robson/.dotnet/sdk/9.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

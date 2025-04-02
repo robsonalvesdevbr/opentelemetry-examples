@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Yiwv+i/6t6Q=",
+  "dgSpecHash": "cDUjf6TLIVE=",
   "success": true,
-  "projectFilePath": "/home/robson/Documentos/workspace/source_code/github.com/robsonalvesdevbr/opentelemetry-examples/dotnet/example2/dotnet_opentelemetry2/dotnet_opentelemetry2.csproj",
+  "projectFilePath": "/home/robson/workspace/source_code/github.com/robsonalvesdevbr/opentelemetry-examples/dotnet/dotnet_opentelemetry/opentelemetry_2/dotnet_opentelemetry2.csproj",
   "expectedPackageFiles": [
     "/home/robson/.nuget/packages/microsoft.aspnetcore.openapi/9.0.3/microsoft.aspnetcore.openapi.9.0.3.nupkg.sha512",
     "/home/robson/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
