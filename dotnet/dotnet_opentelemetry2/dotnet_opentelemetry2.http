@@ -1,0 +1,6 @@
+@dotnet_opentelemetry2_HostAddress = http://localhost:5022
+
+GET {{dotnet_opentelemetry2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
