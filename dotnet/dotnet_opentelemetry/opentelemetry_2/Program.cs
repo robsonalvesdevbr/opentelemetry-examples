@@ -35,20 +35,21 @@ builder.Services.AddOpenTelemetry()
         .AddHttpClientInstrumentation()
         .AddAspNetCoreInstrumentation()
         .AddConsoleExporter()
-        .AddOtlpExporter(options =>
-                {
-                    options.Endpoint = new Uri("http://otel-collector:4317");
-                    options.Protocol = OtlpExportProtocol.Grpc;
-                }))
+        // .AddOtlpExporter(options =>
+        //         {
+        //             options.Endpoint = new Uri("http://otel-collector:4317");
+        //             options.Protocol = OtlpExportProtocol.Grpc;
+        //         })
+    )
     .WithMetrics(metrics => 
         metrics
             .AddMeter(serviceName)
             .AddConsoleExporter()
-            .AddOtlpExporter(options =>
-                {
-                    options.Endpoint = new Uri("http://otel-collector:4317");
-                    options.Protocol = OtlpExportProtocol.Grpc;
-                })
+            // .AddOtlpExporter(options =>
+            //     {
+            //         options.Endpoint = new Uri("http://otel-collector:4317");
+            //         options.Protocol = OtlpExportProtocol.Grpc;
+            //     })
         );
 
 builder.Logging.AddOpenTelemetry(options => {
@@ -58,12 +59,12 @@ builder.Logging.AddOpenTelemetry(options => {
         serviceName: serviceName,
         serviceVersion: serviceVersion)
     .AddAttributes(resourceAttributes))
-    .AddConsoleExporter()
-    .AddOtlpExporter(options =>
-    {
-        options.Endpoint = new Uri("http://otel-collector:4317");
-        options.Protocol = OtlpExportProtocol.Grpc;
-    });
+    .AddConsoleExporter();
+    // .AddOtlpExporter(options =>
+    // {
+    //     options.Endpoint = new Uri("http://otel-collector:4317");
+    //     options.Protocol = OtlpExportProtocol.Grpc;
+    // });
     options.IncludeFormattedMessage = true;
 });
 
