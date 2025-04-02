@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace dotnet_opentelemetry2.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class RegistryController : ControllerBase
     {
 
@@ -14,7 +14,7 @@ namespace dotnet_opentelemetry2.Controllers
             _logger = logger;
         }
 
-        [HttpGet("{type}")]
+        [HttpGet()]
         public IActionResult GetRegistry([FromQuery] string type)
         {
             // Simulate some processing logic

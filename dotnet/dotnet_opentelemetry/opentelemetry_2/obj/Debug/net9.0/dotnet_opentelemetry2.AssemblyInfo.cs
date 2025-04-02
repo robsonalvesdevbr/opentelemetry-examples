@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dotnet_opentelemetry2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b3234338d3a09819c951ca42bb5e0a5193b49c82")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+427b406ed5c5fd34fe59eb2df7a4bb5f68f6490b")]
 [assembly: System.Reflection.AssemblyProductAttribute("dotnet_opentelemetry2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dotnet_opentelemetry2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

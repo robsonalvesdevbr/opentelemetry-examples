@@ -135,10 +135,25 @@ services:
     container_name: dotnetapp1
     build:
       context: dotnet/dotnet_opentelemetry/opentelemetry_1/.
-    image: robsondevbr/dotnetapp:latest
+    image: robsondevbr/dotnetapp1:latest
     ports:
       - "8090:8080"
       - "8091:8081"
+    depends_on:
+      - jaeger-all-in-one
+      - zipkin-all-in-one
+      - prometheus
+      - otel-collector
+      - seq
+
+  dotnetapp2:
+    container_name: dotnetapp2
+    build:
+      context: dotnet/dotnet_opentelemetry/opentelemetry_2/.
+    image: robsondevbr/dotnetapp2:latest
+    ports:
+      - "8092:8080"
+      - "8093:8081"
     depends_on:
       - jaeger-all-in-one
       - zipkin-all-in-one

@@ -1,6 +1,31 @@
 @dotnet_opentelemetry2_HostAddress = http://localhost:5022
 
-GET {{dotnet_opentelemetry2_HostAddress}}/weatherforecast/
+GET {{dotnet_opentelemetry2_HostAddress}}/registry?type="info"/
+Accept: application/json
+
+###
+
+GET {{dotnet_opentelemetry2_HostAddress}}/registry?type="error"/
+Accept: application/json
+
+###
+
+GET {{dotnet_opentelemetry2_HostAddress}}/registry?type="warning"/
+Accept: application/json
+
+###
+
+GET {{dotnet_opentelemetry2_HostAddress}}/registry?type="debug"/
+Accept: application/json
+
+###
+
+GET {{dotnet_opentelemetry2_HostAddress}}/registry?type="trace"/
+Accept: application/json
+
+###
+
+GET {{dotnet_opentelemetry2_HostAddress}}/registry?type="critical"/
 Accept: application/json
 
 ###
