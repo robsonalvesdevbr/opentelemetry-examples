@@ -10,8 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-var serviceName = "dotnet_opentelemetry.opentelemetry_2";
-var serviceVersion = "1.0.0";
+var serviceName = Environment.GetEnvironmentVariable("INSTANCE_NAME") ?? "dotnet-opentelemetry";
+var serviceVersion = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "undefined";
 var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
 
 var resourceAttributes = new Dictionary<string, object>
@@ -19,7 +19,7 @@ var resourceAttributes = new Dictionary<string, object>
     ["runtime.os.deescription"] = RuntimeInformation.OSDescription,
     ["runtime.framework.description"] = RuntimeInformation.FrameworkDescription,
     ["deployment.environment"] = environment,
-    ["service.name"] = "RobsonAlves.Backend.Microservice.Client",
+    ["service.name"] = serviceName,
     ["service.namespace"] = Assembly.GetExecutingAssembly().GetName().Name ?? "undefined",
     ["service.version"] = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "undefined"
 };
