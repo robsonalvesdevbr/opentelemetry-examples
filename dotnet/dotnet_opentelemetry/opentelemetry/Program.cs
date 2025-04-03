@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using OpenTelemetry.Exporter;
@@ -24,6 +25,12 @@ var resourceAttributes = new Dictionary<string, object>
     ["service.version"] = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "undefined"
 };
 
+var MyActivitySource = new ActivitySource(serviceName);
+using var activity = MyActivitySource.StartActivity("SayHello");
+activity?.SetTag("foo", 1);
+activity?.SetTag("bar", "Hello, World!");
+activity?.SetTag("baz", new int[] { 1, 2, 3 });
+
 builder.Services.AddOpenTelemetry()
     .ConfigureResource(resource => resource
         .AddService(
@@ -42,6 +49,12 @@ builder.Services.AddOpenTelemetry()
             .AddMeter(serviceName)
             .AddHttpClientInstrumentation()
             .AddAspNetCoreInstrumentation()
+            // // Metrics provided by System.Net libraries
+            // .AddMeter("System.Net.Http")
+            // .AddMeter("System.Net.NameResolution")
+            // // Metrics provided by ASP.NET libraries
+            // .AddMeter("Microsoft.AspNetCore.Hosting")
+            // .AddMeter("Microsoft.AspNetCore.Server.Kestrel")
             .AddConsoleExporter()
             .AddOtlpExporter()
         );

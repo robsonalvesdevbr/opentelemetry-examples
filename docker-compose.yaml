@@ -141,6 +141,7 @@ services:
       - "8091:8081"
     environment:
       - INSTANCE_NAME=dotnet_opentelemetry_1
+      - OTEL_SERVICE_NAME=dotnet_opentelemetry_1
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
       - OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=grpc
       - OTEL_LOG_LEVEL=debug
@@ -161,6 +162,7 @@ services:
       - "8093:8081"
     environment:
       - INSTANCE_NAME=dotnet_opentelemetry_2
+      - OTEL_SERVICE_NAME=dotnet_opentelemetry_2
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
       - OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=grpc
       - OTEL_LOG_LEVEL=debug
