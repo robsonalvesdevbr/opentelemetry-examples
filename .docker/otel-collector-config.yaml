@@ -32,6 +32,12 @@ exporters:
 processors:
   batch:
 
+  filter/remove_route:
+      error_mode: ignore
+      logs:
+        log_record:
+          - resource.attributes["request.uri"] == "/favicon.ico"
+
 extensions:
   health_check:
   pprof:
@@ -44,13 +50,13 @@ service:
   pipelines:
     traces:
       receivers: [otlp]
-      processors: [batch]
+      processors: [batch, filter/remove_route]
       exporters: [zipkin, otlp/jaeger, otlphttp/seq]
     metrics:
       receivers: [otlp]
-      processors: [batch]
+      processors: [batch, filter/remove_route]
       exporters: [prometheus, otlphttp/seq]
     logs:
       receivers: [otlp]
-      processors: [batch]
+      processors: [batch, filter/remove_route]
       exporters: [otlphttp/seq]
