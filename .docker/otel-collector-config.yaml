@@ -27,6 +27,12 @@ exporters:
     endpoint: http://seq:5341/ingest/otlp
     tls:
       insecure: true
+
+  # Aspire Dashboard
+  otlp/aspire-dashboard:
+    endpoint: aspire-dashboard:18889
+    tls:
+      insecure: true
     
 
 processors:
@@ -51,12 +57,12 @@ service:
     traces:
       receivers: [otlp]
       processors: [batch, filter/remove_route]
-      exporters: [zipkin, otlp/jaeger, otlphttp/seq]
+      exporters: [zipkin, otlp/jaeger, otlphttp/seq, otlp/aspire-dashboard]
     metrics:
       receivers: [otlp]
       processors: [batch, filter/remove_route]
-      exporters: [prometheus, otlphttp/seq]
+      exporters: [prometheus, otlphttp/seq, otlp/aspire-dashboard]
     logs:
       receivers: [otlp]
       processors: [batch, filter/remove_route]
-      exporters: [otlphttp/seq]
+      exporters: [otlphttp/seq, otlp/aspire-dashboard]

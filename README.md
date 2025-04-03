@@ -13,3 +13,8 @@ docker run --rm -it datalust/seq show-key --generate
 ```bash
 COMPOSE_BAKE=true docker compose up -d
 ```
+
+# Gerar chave de 32 caracteres para o Aspire
+```bash
+openssl rand -base64 32
+```
