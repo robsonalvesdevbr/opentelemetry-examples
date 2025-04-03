@@ -42,6 +42,22 @@ services:
     depends_on:
       - otel-collector
 
+  aspire-dashboard:
+    # https://azure.microsoft.com/pt-br/products/category/containers/
+    # https://learn.microsoft.com/pt-br/dotnet/core/diagnostics/observability-otlp-example
+    image: mcr.microsoft.com/dotnet/aspire-dashboard:latest
+    container_name: aspire-dashboard
+    restart: always
+    ports:
+      - 18888:18888
+      - 18889:18889
+    environment:
+      #- DASHBOARD__OTLP__AUTHMODE=ApiKey
+      #- DASHBOARD__OTLP__PRIMARYAPIKEY=RQD9sGhdURmTAfp9UpsjSmSNm72yC2zn20QFYeoyfI0=
+      - DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS=true
+    depends_on:
+      - otel-collector
+
   otel-collector:
     image: otel/opentelemetry-collector:latest
     restart: always
@@ -72,6 +88,7 @@ services:
       - OTEL_SERVICE_NAME=microservice-demo
       - OTEL_EXPORTER_OTLP_ENDPOINT=otel-collector:4317
       - HTTP_PORT=:8080
+      #- OTEL_EXPORTER_OTLP_HEADERS=RQD9sGhdURmTAfp9UpsjSmSNm72yC2zn20QFYeoyfI0=
     ports:
       - "8080:8080"
     depends_on:
@@ -98,6 +115,7 @@ services:
       - OTEL_SERVICE_NAME=microservice-demo2
       - OTEL_EXPORTER_OTLP_ENDPOINT=otel-collector:4317
       - HTTP_PORT=:8181
+      #- OTEL_EXPORTER_OTLP_HEADERS=RQD9sGhdURmTAfp9UpsjSmSNm72yC2zn20QFYeoyfI0=
     ports:
       - "8181:8181"
     depends_on:
@@ -122,6 +140,7 @@ services:
       - OTEL_SERVICE_NAME=microservice-demo3
       - OTEL_EXPORTER_OTLP_ENDPOINT=otel-collector:4317
       - HTTP_PORT=:8282
+      #- OTEL_EXPORTER_OTLP_HEADERS=RQD9sGhdURmTAfp9UpsjSmSNm72yC2zn20QFYeoyfI0=
     ports:
       - "8282:8282"
     depends_on:
@@ -145,6 +164,7 @@ services:
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
       - OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=grpc
       - OTEL_LOG_LEVEL=debug
+      #- OTEL_EXPORTER_OTLP_HEADERS=RQD9sGhdURmTAfp9UpsjSmSNm72yC2zn20QFYeoyfI0=
     depends_on:
       - jaeger-all-in-one
       - zipkin-all-in-one
@@ -166,6 +186,7 @@ services:
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
       - OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=grpc
       - OTEL_LOG_LEVEL=debug
+      #- OTEL_EXPORTER_OTLP_HEADERS=RQD9sGhdURmTAfp9UpsjSmSNm72yC2zn20QFYeoyfI0=
     depends_on:
       - jaeger-all-in-one
       - zipkin-all-in-one
